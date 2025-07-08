@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://ck8og5x4dyni3"]
+
+[ext_resource type="PackedScene" uid="uid://cxa5gt43g5b1o" path="res://Game/Prefabs/Interactables/interactable_block.tscn" id="1_3dd78"]
+[ext_resource type="Script" uid="uid://bfuw6h1rdranw" path="res://Game/Levels/GameManager.gd" id="1_t4iqp"]
+[ext_resource type="PackedScene" uid="uid://cuxs187xtqbe0" path="res://Game/Prefabs/Interactables/colour_changer.tscn" id="2_t4iqp"]
+[ext_resource type="PackedScene" uid="uid://c1y4scea0pd40" path="res://Game/Actors/player.tscn" id="3_4yv3h"]
+[ext_resource type="PackedScene" uid="uid://cxeuhkg8hk877" path="res://Game/Prefabs/Interactables/teleporter.tscn" id="5_4yv3h"]
+[ext_resource type="PackedScene" uid="uid://dy1fm5re3wemo" path="res://Game/Prefabs/end_level.tscn" id="6_u60bg"]
+
+[sub_resource type="Gradient" id="Gradient_u60bg"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n8f2r"]
+gradient = SubResource("Gradient_u60bg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otlvf"]
+size = Vector2(64, 62)
+
+[node name="TestLevel" type="Node"]
+script = ExtResource("1_t4iqp")
+Next_Level = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(358, 365)
+scale = Vector2(10.9688, 0.25)
+texture = SubResource("GradientTexture2D_n8f2r")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_otlvf")
+
+[node name="Interactable_Block" parent="." instance=ExtResource("1_3dd78")]
+position = Vector2(568, 340)
+
+[node name="Interactable_Block2" parent="." instance=ExtResource("1_3dd78")]
+position = Vector2(91, 340)
+Colour = 3
+
+[node name="Colour_Changer" parent="." instance=ExtResource("2_t4iqp")]
+position = Vector2(224, 322)
+Colour = 3
+
+[node name="Colour_Changer2" parent="." instance=ExtResource("2_t4iqp")]
+position = Vector2(477, 325)
+
+[node name="Player" parent="." instance=ExtResource("3_4yv3h")]
+position = Vector2(347, 336)
+Colour = 2
+
+[node name="Teleporter" parent="." node_paths=PackedStringArray("end_position") instance=ExtResource("5_4yv3h")]
+position = Vector2(669, 340)
+end_position = NodePath("../Teleporter2")
+
+[node name="Teleporter3" parent="." node_paths=PackedStringArray("end_position") instance=ExtResource("5_4yv3h")]
+position = Vector2(33, 340)
+end_position = NodePath("../Teleporter2")
+Colour = 3
+
+[node name="Teleporter2" parent="." instance=ExtResource("5_4yv3h")]
+position = Vector2(337, 29)
+Colour = 2
+
+[node name="End_Level" parent="." instance=ExtResource("6_u60bg")]
+position = Vector2(347, 340)
+Colour = 2

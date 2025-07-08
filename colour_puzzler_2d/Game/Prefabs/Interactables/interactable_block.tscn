@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxa5gt43g5b1o"]
+
+[ext_resource type="PackedScene" uid="uid://ceen0gaca6bln" path="res://Game/Prefabs/Interactables/interactable_base.tscn" id="1_lqw5o"]
+[ext_resource type="Script" uid="uid://evbrqhj4a72l" path="res://Game/Prefabs/Interactables/interactable_block.gd" id="2_st4i2"]
+
+[sub_resource type="Gradient" id="Gradient_lqw5o"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_st4i2"]
+gradient = SubResource("Gradient_lqw5o")
+width = 16
+height = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqw5o"]
+
+[node name="Interactable_Block" groups=["Block"] instance=ExtResource("1_lqw5o")]
+script = ExtResource("2_st4i2")
+
+[node name="Visuals" parent="." index="0"]
+texture = SubResource("GradientTexture2D_st4i2")
+
+[node name="CollisionShape2D" parent="Interactable_Area" index="0"]
+shape = SubResource("RectangleShape2D_lqw5o")

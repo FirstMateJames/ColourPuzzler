@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1y4scea0pd40"]
+
+[ext_resource type="Script" uid="uid://dmgsjnehqnvmb" path="res://Game/Actors/player_controller.gd" id="1_y5wnu"]
+[ext_resource type="Script" uid="uid://rk22dop76b6b" path="res://Game/Actors/interaction_area.gd" id="2_7djj0"]
+
+[sub_resource type="Gradient" id="Gradient_1jey5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y5wnu"]
+gradient = SubResource("Gradient_1jey5")
+width = 16
+height = 32
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7djj0"]
+radius = 7.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ru84c"]
+radius = 14.0
+height = 48.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_y5wnu")
+Colour = 1
+
+[node name="Visuals" type="Sprite2D" parent="."]
+self_modulate = Color(0, 1, 0, 1)
+texture = SubResource("GradientTexture2D_y5wnu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7djj0")
+
+[node name="ColourManager" type="Node" parent="."]
+
+[node name="Interaction_Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("2_7djj0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Area"]
+shape = SubResource("CapsuleShape2D_ru84c")

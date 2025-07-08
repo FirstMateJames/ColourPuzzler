@@ -1,0 +1,133 @@
+[gd_scene load_steps=13 format=3 uid="uid://csbi4djrkpp0i"]
+
+[ext_resource type="Script" uid="uid://3rqt25xhgqk8" path="res://Game/Levels/Menus/main_menu.gd" id="1_kf2tr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf2tr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dw5yc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gixqp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ttvdo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3fcxt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klw43"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_74jd3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jp26h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bswc2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgtpb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t27io"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_kf2tr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackGround" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.737412, 0.318044, 0.310148, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/BackGround"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 20.0
+offset_right = -19.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.205169, 0.522978, 0.340285, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/BackGround/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/BackGround/ColorRect/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Header" type="Label" parent="Control/BackGround/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Game Name"
+
+[node name="Play" type="Button" parent="Control/BackGround/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kf2tr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dw5yc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gixqp")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ttvdo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3fcxt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_klw43")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_74jd3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_jp26h")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bswc2")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_tgtpb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t27io")
+text = "Play
+"
+flat = true
+
+[node name="Settings" type="Button" parent="Control/BackGround/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kf2tr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dw5yc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gixqp")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ttvdo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3fcxt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_klw43")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_74jd3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_jp26h")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bswc2")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_tgtpb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t27io")
+disabled = true
+text = "Settings
+"
+flat = true
+
+[node name="Quit" type="Button" parent="Control/BackGround/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kf2tr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dw5yc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gixqp")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ttvdo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3fcxt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_klw43")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_74jd3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_jp26h")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bswc2")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_tgtpb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t27io")
+text = "Quit to DeskTop
+"
+flat = true
+
+[connection signal="pressed" from="Control/BackGround/ColorRect/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

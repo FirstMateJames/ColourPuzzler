@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuxs187xtqbe0"]
+
+[ext_resource type="PackedScene" uid="uid://ceen0gaca6bln" path="res://Game/Prefabs/Interactables/interactable_base.tscn" id="1_u7csr"]
+[ext_resource type="Script" uid="uid://byoo0wyqxspb8" path="res://Game/Prefabs/Interactables/colour_changer.gd" id="2_nl40g"]
+
+[sub_resource type="Gradient" id="Gradient_nl40g"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x3ta3"]
+gradient = SubResource("Gradient_nl40g")
+width = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7csr"]
+size = Vector2(8, 64)
+
+[node name="Colour_Changer" instance=ExtResource("1_u7csr")]
+script = ExtResource("2_nl40g")
+Interact_on_Collision = true
+
+[node name="Visuals" parent="." index="0"]
+texture = SubResource("GradientTexture2D_x3ta3")
+
+[node name="CollisionShape2D" parent="Interactable_Area" index="0"]
+shape = SubResource("RectangleShape2D_u7csr")

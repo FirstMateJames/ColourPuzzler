@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbjgvs56qcocd"]
+
+[ext_resource type="Script" uid="uid://t6f3fmkkio8f" path="res://Game/Levels/Menus/level_select.gd" id="1_s0uoy"]
+
+[node name="LevelSelect" type="Node"]
+script = ExtResource("1_s0uoy")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackGround" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.737412, 0.318044, 0.310148, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/BackGround"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 20.0
+offset_right = -19.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.205169, 0.522978, 0.340285, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/BackGround/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level_Buttons" type="GridContainer" parent="Control/BackGround/ColorRect/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 10
