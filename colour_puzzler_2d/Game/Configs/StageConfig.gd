@@ -14,7 +14,6 @@ static func get_stage_node(Scene : Stages) -> Node:
 	return load(GET_STAGE_NODE.get(Scene)).instantiate()
 
 
-
 const GET_MAIN_MENU = "res://Game/Levels/Menus/MainMenu.tscn"
 const GET_LEVEL_SELECT = "res://Game/Levels/Menus/Level_Select.tscn"
 
